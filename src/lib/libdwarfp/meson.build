@@ -30,13 +30,12 @@ libdwarfp_src = [
   'dwarf_pro_weaks.c'
 ]
 
-libdwarf_dir = include_directories('../libdwarf')
-if (lib_type == 'shared')
-  compiler_flags = ['-DLIBDWARF_BUILD']
-  compiler_flags_public = []
-else
+if (lib_type == 'static')
   compiler_flags = ['-DLIBDWARF_STATIC']
   compiler_flags_public = ['-DLIBDWARF_STATIC']
+else
+  compiler_flags = ['-DLIBDWARF_BUILD']
+  compiler_flags_public = []
 endif
 
 
